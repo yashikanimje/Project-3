@@ -15,4 +15,9 @@ pipeline {
 		    steps {
 			sh 'cp target/Project-3.war /home/grras/slavedir/apache-tomcat-9.0.93/webapps'
 			}}	
+		stage('slack-notification'){
+		   steps {
+		     
+		     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'devops-slack', color: 'good', message: 'hello slack', teamDomain: 'Devops', tokenCredentialId: 'slack-notifer'
+		     }}	
 }}
